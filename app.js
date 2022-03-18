@@ -107,12 +107,41 @@ function criarTabela() {
 
 let Dados = JSON.parse(localStorage.getItem(i))
 
-    console.log(Dados)
+        switch (Dados.tipo)
+        {
+
+            case '1':
+                Dados.tipo = "Alimentação";
+                break;
+                
+
+            case '2':
+                Dados.tipo = "Educação";
+                break;
+                
+
+            case '3':
+                Dados.tipo = "Lazer";
+                break;
+                
+
+            case '4':
+                Dados.tipo = "Saúde";
+                break;
+                
+            case '5':
+                Dados.tipo = "Transporte";
+                break;
+        
+        }
+
+
+   
 
     let tabela = document.getElementById("tabela")
 
     let nova_td = document.createElement("tbody")
-    nova_td.innerHTML = `<td>${Dados.ano}/${Dados.mes}/${Dados.dia}</td> 
+    nova_td.innerHTML = `<td>${Dados.dia}/${Dados.mes}/${Dados.ano}</td> 
                          <td> ${Dados.tipo}</td>
                          <td> ${Dados.descricao}</td>
                          <td> ${Dados.valor}</td>
