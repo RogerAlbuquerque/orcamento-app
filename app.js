@@ -1,37 +1,138 @@
 
 
 
-function obterDados() {
-    let ano = document.getElementById('ano').value
-    let mes = document.getElementById('mes').value
-    let dia = document.getElementById('dia').value
-    let tipo = document.getElementById('tipo').value
-    let descricao = document.getElementById('descricao').value
-    let valor = document.getElementById('valor').value
+function obterDados()
+{
+    let ano         = document.getElementById('ano').value
+    let mes         = document.getElementById('mes').value
+    let dia         = document.getElementById('dia').value
+    let tipo        = document.getElementById('tipo').value
+    let descricao   = document.getElementById('descricao').value
+    let valor       = document.getElementById('valor').value
 
 
-    let BD = {
+    let BD = 
+    {
 
         ano,
         mes,
         dia,
         tipo,
         descricao,
-        valor 
+        valor,
+
+
+            registroBD: function (key, ano, mes, dia, tipo, descricao, valor)
+            {
+
+                ano = this.ano
+                mes = this.mes
+                dia = this.dia
+                tipo = this.tipo
+                descricao = this.descricao
+                valor = this.valor
+
+
+                localStorage.setItem(key, JSON.stringify(BD))
+                
+            }
         
+    }
+
+         
+    
+    for (i = 0; i <= localStorage.length ; i++)
+    {    
+
+       if (ano =="" || mes =="" || dia =="" || tipo =="" || descricao =="" || valor =="" )
+       {
+       
+       document.getElementById("botao").setAttribute("data-target", "#ModalFalha")
+           
+           break
+
         }
 
-       var DadosBd = localStorage.setItem("1", JSON.stringify(BD))
+        else{
+
+            if (localStorage.getItem(i) == null)
+            {            
+            
+                    BD.registroBD(i, ano,mes,dia,tipo,descricao,valor)
+
+                     ano         = document.getElementById('ano').value         =""
+                     mes         = document.getElementById('mes').value         =""
+                     dia         = document.getElementById('dia').value         =""
+                     tipo        = document.getElementById('tipo').value        =""
+                     descricao   = document.getElementById('descricao').value   =""
+                     valor       = document.getElementById('valor').value       =""
+
+                     document.getElementById("botao").setAttribute("data-target", "#ModalSucesso")
+                      
+                    break            
+
+            }
+            
+            else
+                {
+                    continue 
+                }
+        }
+
+
+
+
+
+    }
+
+}
+
+
+
+
+
+function registrar()
+{
+
+    
+
+}
+
+
+
+
+function criarTabela() {
+
+    for (i=0 ; i < localStorage.length ; i++){
+
+let Dados = JSON.parse(localStorage.getItem(i))
+
+    console.log(Dados)
+
+    let tabela = document.getElementById("tabela")
+
+    let nova_td = document.createElement("tbody")
+    nova_td.innerHTML = `<td>${Dados.ano}/${Dados.mes}/${Dados.dia}</td> 
+                         <td> ${Dados.tipo}</td>
+                         <td> ${Dados.descricao}</td>
+                         <td> ${Dados.valor}</td>
+    
+    
+    `
+
+    tabela.appendChild(nova_td)
 
 
 }
 
 
-let tabela = document.getElementById('tabela')
 
-tabela.tr.write('teste')
+    
+
+   
 
 
+}
 
 
 
