@@ -152,9 +152,7 @@ function criarTabela() {
                                     <td> ${Dados.tipo}</td>
                                     <td> ${Dados.descricao}</td>
                                     <td> ${Dados.valor}</td>   
-                                    <td> <button type="button" value="${Dados.total}" id="botao" class="btn btn-danger bott" onclick="removerDespesas()">
-                                    <strong>X</strong>
-                                    </button> </td>`
+                                   `
             
             tabela.appendChild(nova_td)
 
@@ -176,6 +174,21 @@ function criarTabela() {
 
 }
 
+
+function pesquisar(){
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+
+    
+
+
+
+}
 
 
 
