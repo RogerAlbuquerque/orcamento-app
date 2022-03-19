@@ -88,6 +88,16 @@ function obterDados() {
 
 
 
+function removerDespesas () {
+
+    let x = document.getElementById("botao").value
+        console.log(x)
+//    localStorage.removeItem()
+
+    
+
+}
+
 
 function criarTabela() {
 
@@ -132,18 +142,7 @@ function criarTabela() {
 
 
 
-            let removerDespesas = {
-
-               
-
-                remover: function(dados){
-
-                    
-                    console.log(dados)
-
-                }
-
-            }
+            
 
 
             let tabela = document.getElementById("tabela")
@@ -153,7 +152,7 @@ function criarTabela() {
                                     <td> ${Dados.tipo}</td>
                                     <td> ${Dados.descricao}</td>
                                     <td> ${Dados.valor}</td>   
-                                    <td> <button type="button" id="${Dados.total}" class="btn btn-danger" onclick="${removerDespesas.remover(Dados.total)}">
+                                    <td> <button type="button" value="${Dados.total}" id="botao" class="btn btn-danger bott" onclick="removerDespesas()">
                                     <strong>X</strong>
                                     </button> </td>`
             
